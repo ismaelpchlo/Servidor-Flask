@@ -1,0 +1,312 @@
+/* Definition of main variables */
+:root {
+    --main-color: #FFFFFF;
+}
+
+
+/*---------------- General configuration ----------------*/
+body {
+    background: #424B54; /*#CBE4F6*/
+}
+
+.no-display {
+    display: none;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin-topbottom {
+    margin: 2% auto;
+}
+
+.sub-container {
+    display: inline-block;
+    margin: 0 1.5%;
+}
+
+.add-photo {
+    color: var(--main-color);
+    background: #93A8AC;
+    font-size: 50px;
+    border: 4px dashed var(--main-color);
+    border-radius: 4px;
+    flex-direction: column;
+    text-align: center;
+}
+
+.choose-style {
+    color: var(--main-color);
+    font-size: 20px;
+    flex-direction: column;
+    text-align: left;
+}
+
+.transfer-basic {
+    color: var(--main-color);
+    background: white;
+    border: 4px var(--main-color);
+    border-radius: 4px;
+}
+
+/*---------------- Icons ----------------*/
+.icon-style:after {
+    content: '\2766';
+    font-size: 4vmax;
+}
+
+.icon-fake {
+    height:10vmax;
+    width:10vmax;
+
+    background-image: url('/static/images/draw.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.icon-loading {
+    height:30vmax;
+}
+
+
+.button-transfer {
+    height:6vmax;
+    width:6vmax;
+
+    background-color: white;
+    background-image: url('/static/images/arrow.png');
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 4px solid #93A8AC;/*#4CAF50;*/
+    border-radius: 20%;
+}
+.button-transfer:hover {
+    background-color: grey;
+}
+
+
+/*---------------- Fixed text ----------------*/
+.style-info {
+    font-size: 1.5vmax;
+    margin: -1.2vmax 0 0 0;
+    font-weight: bold;
+}
+
+.style-info-click {
+    font-size: 1vmax;
+    margin: 0;
+}
+
+input[type='radio']:before {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    position: absolute;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    position: absolute;
+    background-color: #424B54;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+
+@media(min-width: 730px) {
+    /*---------------- Interactive info text ----------------
+
+       Credit: https://www.w3docs.com/snippets/css/how-to-display-an-animated-text-over-an-image-on-hover-using-only-css3.html
+    */
+    .display-text {
+        position: relative;
+        padding: 0;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .content {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white; /*#2586D0;*/
+        background-color: rgba(200, 200, 200, 0.5);
+        -webkit-transition: all 400ms ease-out;
+        -moz-transition: all 400ms ease-out;
+        -o-transition: all 400ms ease-out;
+        -ms-transition: all 400ms ease-out;
+        transition: all 400ms ease-out;
+        text-align: center;
+    }
+
+    .display-text .content:hover {
+        opacity: 1;
+    }
+    .display-text .content .text {
+        height: 0;
+        opacity: 1;
+        transition-delay: 0s;
+        transition-duration: 0.4s;
+    }
+
+    .display-text .content:hover .text {
+        opacity: 1;
+        transform: translateY(var(--y));
+        -webkit-transform: translateY(var(--y));
+    }
+    /* Segmentation map text */
+    .image-text {
+        --y: 21vmax;
+        font-size: 2vmax;
+        height: 30vmax;
+        width: 30vmax;
+        width-min: 256px;
+    }
+    /* Style image text */
+    .style-text {
+        --y: 8vmax;
+        font-size: 1.5vmax;
+        height: 12vmax;
+        width: 20vmax;
+    }
+}
+
+@media(max-width: 730px) {
+    .container {
+        flex-direction: column;
+    }
+
+    /*---------------- Icons ----------------*/
+    .icon-style:after {
+        font-size: 12vmin;
+    }
+
+    .icon-fake {
+        height: 15vmin;
+        width: 15vmin;
+    }
+
+    .icon-loading {
+        height: 20vmin;
+    }
+
+
+    /*---------------- Fixed text ----------------*/
+    .style-info {
+        font-size: 4vmin;
+        margin: -2vmin 0 0 0;
+    }
+
+    .style-info-click {
+        font-size: 3vmin;
+    }
+
+    /*---------------- Interactive text  ----------------*/
+    .text {
+        display: None;
+    }
+}
+
+/*---------------- Dimensions ----------------*/
+.dim-img {
+    height: 30vmax;
+    width: 30vmax;
+    width-min: 256px;
+}
+
+.dim-style-container {
+    height: 12vmax;
+    width: 20vmax;
+    margin: 2% 0;
+}
+
+.dim-styimg {
+    height:auto;
+    max-height: 12vmax;
+    width:auto;
+    max-width: 20vmax;
+}
+
+.dim-generate {
+    height: 18vmax;
+    width: 20vmax;
+}
+
+/*---------------- Icons ----------------*/
+.icon-image {
+    height:5vmax;
+    width:100%;
+
+    background-image: url('/static/images/image.png');
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/*---------------- Fixed text ----------------*/
+.image-info {
+    font-size: 2vmax;
+    margin: 0;
+    font-weight: bold;
+}
+
+.image-info-click {
+    font-size: 1.3vmax;
+    margin: 0;
+}
+
+@media(max-width: 730px) {
+    /*---------------- Dimensions ----------------*/
+    .dim-img {
+        height: 90vmin;
+        width: 90vmin;
+        margin: 2% 0;
+    }
+
+    .dim-style-container {
+        height: 50vmin;
+        width: 60vmin;
+        margin: 2% 20vmin;
+    }
+
+    .dim-styimg {
+        max-height: 50vmin;
+        max-width: 60vmin;
+        margin: 2% 20vmin;
+    }
+
+    /*---------------- Icons ----------------*/
+    .icon-image {
+        height: 15vmin;
+    }
+
+    /*---------------- Fixed text ----------------*/
+    .image-info {
+        font-size: 6vmin;
+    }
+
+    .image-info-click {
+        font-size: 4vmin;
+    }
+}

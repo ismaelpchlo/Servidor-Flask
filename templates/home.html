@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block head %}
+    <!-- Font Awesome 5 Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block staticdemo_navitem %}
+<li class="nav-item active">
+{% endblock %}
+
+{% block content %}
+<!--
+<center>
+    <h1>Static Demo</h1>
+</center>
+-->
+
+<div class="container margin-topbottom" id="messages">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="container">
+    <form class="container" action="/staticdemo" method="POST" enctype="multipart/form-data" name="form-data">
+        <div class="sub-container">
+            <div class="add-photo container dim-img display-text" id="add-image">
+                <span id="span-image">
+                    <div class="icon-image"></div>
+
+                    <p class="image-info"> Add Image </p>
+                    <p class="image-info-click">
+                        Click here to choose a image file <br>
+                        (PNG or JPG/JPEG files only)
+                    </p>
+                </span>
+
+                <div class="image-text content">
+                    <div class="text">Click to upload <br> image</div>
+                </div>
+            </div>
+
+            <input type="file" class="no-display" id="upload-image" name="image">
+        </div>
+
+        <div class="sub-container">
+            <div class="choose-style container dim-style-container" id="add-style">
+                <span id="span-style-staticdemo">
+                  <p class="style-info">Choose a style:</p>
+                  <p class="style-info-click">
+                  <input type="radio" name="style" value="style_monet" required> Monet's style<br>
+                  <input type="radio" name="style" value="style_cezanne" required> Cezanne's style<br>
+                  <input type="radio" name="style" value="style_ukiyoe" required> Ukiyoe's style<br>
+                  <input type="radio" name="style" value="style_vangogh" required> Van Gogh's style<br>
+                </p>
+                </span>
+
+            </div>
+
+            <div class="dim-generate container">
+                <button type="button" class="button-transfer" onclick="transferStyle()"
+                        data-toggle="tooltip" data-placement="bottom"
+                        title="Click here to transfer the style to the image"/>
+            </div>
+        </div>
+    </form>
+
+    <div class="sub-container">
+        <div class="transfer-basic container dim-img">
+            <span id="transfer-img"><div class="icon-fake"></div></span>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="{{url_for('static', filename='js/handler.js')}}"></script>
+{% endblock %}
